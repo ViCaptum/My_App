@@ -12,7 +12,7 @@ class UserModel:
             ''',(nombre, gmail,username, password))
             self.db.cnx.commit()
             return True
-        except Exception as e:
+        except Exception:
             return False
 
     def del_user(self, id_user):
@@ -26,6 +26,6 @@ class UserModel:
     def verificar_user(self, username):
         self.db.cursor.execute('select * from usuarios where username = ?',(username,))
         return self.db.cursor.fetchone()
-    
+
     def cerrar_conexion(self):
         self.db.cerrar_db()

@@ -4,6 +4,7 @@ class ConexionDB:
     def __init__(self,ruta="db_Kafe.db"):
         self.ruta = ruta
         self.cnx = sqlite3.connect(self.ruta)
+        self.cnx.row_factory = sqlite3.Row
         self.cursor = self.cnx.cursor()
 
     def crear_db(self):
